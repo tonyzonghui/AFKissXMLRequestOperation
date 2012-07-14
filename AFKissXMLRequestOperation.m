@@ -67,7 +67,7 @@ static dispatch_queue_t kissxml_request_operation_processing_queue() {
 }
 
 - (DDXMLDocument *)responseXMLDocument {
-    if (!_responseXMLDocument && [self isFinished]) {
+    if (!_responseXMLDocument && [self isFinished] && [self.responseData length] > 0) {
         NSError *error = nil;
         self.responseXMLDocument = [[[DDXMLDocument alloc] initWithData:self.responseData options:0 error:&error] autorelease];
         self.XMLError = error;
