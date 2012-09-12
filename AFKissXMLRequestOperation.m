@@ -61,7 +61,7 @@ static dispatch_queue_t kissxml_request_operation_processing_queue() {
 }
 
 - (void)dealloc {
-    [_XMLDocument release];
+    [_responseXMLDocument release];
     [_XMLError release];
     [super dealloc];
 }
