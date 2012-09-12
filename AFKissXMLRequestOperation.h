@@ -40,7 +40,7 @@
  */
 @interface AFKissXMLRequestOperation : AFHTTPRequestOperation {
 @private
-    DDXMLDocument *_XMLDocument;
+    DDXMLDocument *_responseXMLDocument;
     NSError *_XMLError;
 }
 
