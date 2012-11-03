@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 	s.license = 'MIT'
 	s.summary = 'AFKissXMLRequestOperation is an extension for AFNetworking that provides an interface to parse XML using KissXML.'
 	s.source = { :git => 'https://github.com/clinseman/AFKissXMLRequestOperation.git', :tag => '0.0.1' }
-	s.source_files = 'AFKissXMLRequestOperation.*'
+	s.source_files = 'AFKissXMLRequestOperation.{h,m}'
 	s.dependency 'AFNetworking'
 	s.dependency 'KissXML'
 	s.ios.deployment_target = '5.0'
