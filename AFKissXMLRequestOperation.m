@@ -45,7 +45,7 @@ static dispatch_queue_t kissxml_request_operation_processing_queue() {
                                                               success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument))success 
                                                               failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, DDXMLDocument *XMLDocument))failure
 {
-    AFKissXMLRequestOperation *requestOperation = [[[self alloc] initWithRequest:urlRequest] autorelease];
+    AFKissXMLRequestOperation *requestOperation = [[self alloc] initWithRequest:urlRequest];
     
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
@@ -60,16 +60,10 @@ static dispatch_queue_t kissxml_request_operation_processing_queue() {
     return requestOperation;
 }
 
-- (void)dealloc {
-    [_responseXMLDocument release];
-    [_XMLError release];
-    [super dealloc];
-}
-
 - (DDXMLDocument *)responseXMLDocument {
     if (!_responseXMLDocument && [self isFinished] && [self.responseData length] > 0) {
         NSError *error = nil;
-        self.responseXMLDocument = [[[DDXMLDocument alloc] initWithData:self.responseData options:0 error:&error] autorelease];
+        self.responseXMLDocument = [[DDXMLDocument alloc] initWithData:self.responseData options:0 error:&error];
         self.XMLError = error;
     }
     
@@ -97,6 +91,8 @@ static dispatch_queue_t kissxml_request_operation_processing_queue() {
 - (void)setCompletionBlockWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-retain-cycles"
     self.completionBlock = ^ {
         if ([self isCancelled]) {
             return;
@@ -128,7 +124,8 @@ static dispatch_queue_t kissxml_request_operation_processing_queue() {
                 }
             });
         }
-    };    
+    };
+#pragma clang diagnostic pop
 }
 
 @end
