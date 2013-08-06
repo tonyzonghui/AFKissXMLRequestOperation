@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 	s.name = 'AFKissXMLRequestOperation@tonyzonghui'
 	s.version = '0.0.1'
 	s.homepage = 'https://github.com/tonyzonghui/AFKissXMLRequestOperation'
-	s.authors = { 'Zhang Zonghui' => 'zhangzonghui01@gmail.com' }
+	s.authors = { 'Mattt Thompson' => 'm@mattt.me' }
 	s.license = 'MIT'
 	s.summary = 'An extension for AFNetworking that provides an interface to parse XML using KissXML. Specified AFNetworking version.'
 	s.source = { :git => 'https://github.com/tonyzonghui/AFKissXMLRequestOperation.git', :tag => '0.0.1' }
