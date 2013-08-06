@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-	s.name = 'AFKissXMLRequestOperation@tonyzonghui'
+	s.name = 'AFKissXMLRequestOperation'
 	s.version = '0.0.1'
 	s.homepage = 'https://github.com/tonyzonghui/AFKissXMLRequestOperation'
 	s.authors = { 'Mattt Thompson' => 'm@mattt.me' }
